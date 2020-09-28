@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Header = () => (
+const Header = ({ title, children }) => (
   <header>
-    <h1>React JS</h1>
+    <h1>{title}</h1>
+    {children}
   </header>
 );
 

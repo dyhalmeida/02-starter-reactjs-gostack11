@@ -1,2 +1,5 @@
-const sum = (a, b) => a + b;
-console.log(sum(3, 3));
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('app'));

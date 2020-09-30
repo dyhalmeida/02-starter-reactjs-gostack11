@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import api from '../../services/api';
 
 export default function Projects() {
-  const [projects, setProjects] = useState(['Node JS', 'Angular']);
+  const [projects, setProjects] = useState([]);
 
-  const handleAddProduct = () => {
-    setProjects([...projects, `React JS ${Date.now()}`]);
-  };
+  useEffect(() => {
+    api.get('projects').then(({ data }) => setProjects(data));
+  }, []);
+
+  const handleAddProduct = () => {};
 
   return (
     <div>
       <ul>
         {projects.map((project, index) => (
-          <li key={index}>{project}</li>
+          <li key={project.id}>
+            {project.title} - {project.owner}
+          </li>
         ))}
       </ul>
       <button type="button" onClick={handleAddProduct}>
